@@ -13,6 +13,7 @@ import com.google.common.collect.Lists;
 
 import org.apache.commons.codec.binary.Base64;
 import org.apache.hadoop.conf.Configuration;
+import org.apache.hadoop.mapred.Counters;
 import org.apache.hadoop.mapreduce.Counter;
 import org.apache.hadoop.mapreduce.JobContext;
 import org.apache.hadoop.mapreduce.TaskInputOutputContext;
@@ -48,7 +49,7 @@ public class HadoopUtils {
     }
     String name = group + ":" + counter;
     LOG.warn("Using a dummy counter for " + name + " because it does not already exist.");
-    return new Counter(name, name) {};
+    return new Counters().findCounter( name, name );
   }
 
   /**

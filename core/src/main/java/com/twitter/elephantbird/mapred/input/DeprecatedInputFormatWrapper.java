@@ -14,11 +14,13 @@ import org.apache.hadoop.mapred.JobConf;
 import org.apache.hadoop.mapred.RecordReader;
 import org.apache.hadoop.mapred.Reporter;
 import org.apache.hadoop.mapreduce.InputFormat;
+import org.apache.hadoop.mapreduce.Job;
 import org.apache.hadoop.mapreduce.JobContext;
 import org.apache.hadoop.mapreduce.StatusReporter;
 import org.apache.hadoop.mapreduce.TaskAttemptContext;
 import org.apache.hadoop.mapreduce.TaskAttemptID;
 import org.apache.hadoop.mapreduce.TaskInputOutputContext;
+import org.apache.hadoop.mapreduce.task.TaskInputOutputContextImpl;
 import org.apache.hadoop.util.ReflectionUtils;
 
 import com.twitter.elephantbird.mapred.output.DeprecatedOutputFormatWrapper;
@@ -98,7 +100,7 @@ public class DeprecatedInputFormatWrapper<K, V> implements org.apache.hadoop.map
 
     try {
       List<org.apache.hadoop.mapreduce.InputSplit> splits =
-        realInputFormat.getSplits(new JobContext(job, null));
+        realInputFormat.getSplits(Job.getInstance(job, null));
 
       if (splits == null) {
         return null;
@@ -212,7 +214,7 @@ public class DeprecatedInputFormatWrapper<K, V> implements org.apache.hadoop.map
       // create a TaskInputOutputContext
       @SuppressWarnings("unchecked")
       TaskAttemptContext taskContext =
-        new TaskInputOutputContext(oldJobConf, taskAttemptID,
+        new TaskInputOutputContextImpl(oldJobConf, taskAttemptID,
             null, null, new ReporterWrapper(reporter)) {
 
               public Object getCurrentKey() throws IOException, InterruptedException {

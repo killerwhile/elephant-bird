@@ -1,5 +1,9 @@
 # Elephant Bird [![Build Status](https://secure.travis-ci.org/kevinweil/elephant-bird.png)](http://travis-ci.org/kevinweil/elephant-bird)
 
+```
+UPDATE: CDH4 compatible version
+```
+
 ## About
 
 Elephant Bird is Twitter's open source library of [LZO](https://github.com/twitter/hadoop-lzo), [Thrift](http://thrift.apache.org/), and/or [Protocol Buffer](http://code.google.com/p/protobuf)-related [Hadoop](http://hadoop.apache.org) InputFormats, OutputFormats, Writables, [Pig](http://pig.apache.org/) LoadFuncs, [Hive](http://hadoop.apache.org/hive) SerDe, [HBase](http://hadoop.apache.org/hbase) miscellanea, etc. The majority of these are in production at Twitter running over data every day.

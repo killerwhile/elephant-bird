@@ -6,12 +6,14 @@ import org.apache.hadoop.fs.FileSystem;
 import org.apache.hadoop.mapred.JobConf;
 import org.apache.hadoop.mapred.RecordWriter;
 import org.apache.hadoop.mapred.Reporter;
+import org.apache.hadoop.mapreduce.Job;
 import org.apache.hadoop.mapreduce.JobContext;
 import org.apache.hadoop.mapreduce.OutputFormat;
 import org.apache.hadoop.mapreduce.StatusReporter;
 import org.apache.hadoop.mapreduce.TaskAttemptContext;
 import org.apache.hadoop.mapreduce.TaskAttemptID;
 import org.apache.hadoop.mapreduce.TaskInputOutputContext;
+import org.apache.hadoop.mapreduce.task.TaskInputOutputContextImpl;
 import org.apache.hadoop.util.Progressable;
 import org.apache.hadoop.util.ReflectionUtils;
 
@@ -72,7 +74,7 @@ public class DeprecatedOutputFormatWrapper<K, V>
   public void checkOutputSpecs(FileSystem ignored, JobConf job) throws IOException {
     initOutputFormat(job);
     try {
-      realOutputFormat.checkOutputSpecs(new JobContext(job, null));
+      realOutputFormat.checkOutputSpecs(Job.getInstance(job, null));
     } catch (InterruptedException e) {
       throw new IOException(e);
     }
@@ -96,7 +98,7 @@ public class DeprecatedOutputFormatWrapper<K, V>
                         throws IOException {
       try {
         // create a TaskInputOutputContext
-        taskContext = new TaskInputOutputContext(
+        taskContext = new TaskInputOutputContextImpl(
                             jobConf,
                             TaskAttemptID.forName(jobConf.get("mapred.task.id")),
                             null, null, (StatusReporter) progress) {

@@ -7,6 +7,7 @@ import java.util.List;
 
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.mapreduce.InputSplit;
+import org.apache.hadoop.mapreduce.Job;
 import org.apache.hadoop.mapreduce.JobContext;
 import org.apache.hadoop.mapreduce.JobID;
 import org.junit.Before;
@@ -17,9 +18,9 @@ public class TestIntegerListInputFormat {
   JobContext jc_;
 
   @Before
-  public void setup() {
+  public void setup() throws IOException {
     input_ = new IntegerListInputFormat();
-    jc_ = new JobContext(new Configuration(), new JobID());
+    jc_ = Job.getInstance(new Configuration(), new JobID().toString());
   }
 
   @Test
