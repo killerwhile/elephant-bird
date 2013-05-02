@@ -87,6 +87,7 @@
     <apache.lucene.version>4.0.0-cdh4.2.0-SNAPSHOT</apache.lucene.version>
     <!--apache.lucene.version>4.0.0</apache.lucene.version-->
     <thrift.bin>thrift</thrift.bin>
+    <protoc.version>2.4.1</protoc.version>
   </properties>
 
   <repositories>
@@ -230,7 +231,7 @@
       <dependency>
         <groupId>com.google.protobuf</groupId>
         <artifactId>protobuf-java</artifactId>
-        <version>2.4.1</version>
+        <version>${protoc.version}</version>
       </dependency>
       <dependency>
         <groupId>org.apache.thrift</groupId>
