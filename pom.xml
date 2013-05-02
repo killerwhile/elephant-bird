@@ -86,6 +86,7 @@
     <!--apache.mahout.version>0.7-cdh4.1.2</apache.mahout.version-->
     <apache.lucene.version>4.0.0-cdh4.2.0-SNAPSHOT</apache.lucene.version>
     <!--apache.lucene.version>4.0.0</apache.lucene.version-->
+    <thrift.bin>thrift</thrift.bin>
   </properties>
 
   <repositories>
@@ -494,7 +495,7 @@
           <artifactId>maven-thrift-plugin</artifactId>
           <version>0.1.10</version>
           <configuration>
-            <thriftExecutable>thrift</thriftExecutable>
+            <thriftExecutable>${thrift.bin}</thriftExecutable>
           </configuration>
         </plugin>
 
