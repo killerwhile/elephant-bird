@@ -23,6 +23,7 @@ import org.apache.pig.data.DataByteArray;
 import org.apache.pig.data.Tuple;
 import org.junit.Assert;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import com.google.common.collect.ImmutableMap;
@@ -41,6 +42,7 @@ import com.twitter.elephantbird.util.ThriftUtils;
 /**
  * Test RCFile loader and storage with Thrift objects
  */
+@Ignore
 public class TestRCFileThriftStorage {
 
   private PigServer pigServer;

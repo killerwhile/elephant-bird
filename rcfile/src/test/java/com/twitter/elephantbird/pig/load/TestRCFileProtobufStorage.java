@@ -22,6 +22,7 @@ import org.apache.pig.data.DataByteArray;
 import org.apache.pig.data.Tuple;
 import org.junit.Assert;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import com.google.protobuf.Message;
@@ -40,6 +41,7 @@ import com.twitter.elephantbird.util.Protobufs;
 /**
  * Test RCFile loader and storage with Protobufs.
  */
+@Ignore
 public class TestRCFileProtobufStorage {
 
   private PigServer pigServer;
