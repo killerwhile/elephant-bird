@@ -100,7 +100,7 @@ public class DeprecatedInputFormatWrapper<K, V> implements org.apache.hadoop.map
 
     try {
       List<org.apache.hadoop.mapreduce.InputSplit> splits =
-        realInputFormat.getSplits(Job.getInstance(job, null));
+        realInputFormat.getSplits(Job.getInstance(job));
 
       if (splits == null) {
         return null;

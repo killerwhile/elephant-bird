@@ -74,7 +74,7 @@ public class DeprecatedOutputFormatWrapper<K, V>
   public void checkOutputSpecs(FileSystem ignored, JobConf job) throws IOException {
     initOutputFormat(job);
     try {
-      realOutputFormat.checkOutputSpecs(Job.getInstance(job, null));
+      realOutputFormat.checkOutputSpecs(Job.getInstance(job));
     } catch (InterruptedException e) {
       throw new IOException(e);
     }
