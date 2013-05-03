@@ -586,4 +586,15 @@
     <module>examples</module>
   </modules>
 
+  <distributionManagement>
+    <repository>
+      <id>cm-artifactory</id>
+      <url>http://cmweb.corpdev.vrsn.com/artifactory/ext-release-local</url>
+    </repository>
+    <snapshotRepository>
+      <id>cm-artifactory</id>
+      <url>http://cmweb.corpdev.vrsn.com/artifactory/ext-snapshot-local</url>
+    </snapshotRepository>
+  </distributionManagement>
+
 </project>
